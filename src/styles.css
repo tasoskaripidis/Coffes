@@ -1,0 +1,47 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* You can add global styles to this file, and also import other style files */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 2. Set a consistent font & background */
+html,
+body {
+  height: 100%;
+  font-family: Arial, sans-serif;
+  background-color: #fff;
+  color: #333;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+/* 3. Anchor tags */
+a {
+  text-decoration: none;
+  color: inherit; /* Inherit text color */
+}
+
+/* 4. Images and media scale properly */
+img,
+video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* 5. Lists without default bullets/padding */
+ul,
+ol {
+  list-style: none;
+}
+
+/* 6. Buttons have consistent look */
+button {
+  font-family: inherit;
+  border: none;
+  background: none;
+  cursor: pointer;
+}

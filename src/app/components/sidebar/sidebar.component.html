@@ -1,0 +1,23 @@
+<div [style.display]="openSidebar ? 'block' : 'none'" class="sidebar">
+  <div class="sidebar-container">
+    <header><img src="/ChatGPT Image 29 Αυγ 2025, 07_24_14 μ.μ..png" /></header>
+    <main>
+      <ul>
+        <li>
+          <span><i class="fa-solid fa-house"></i></span>
+          <button (click)="closeSidebarBtn()">home</button>
+        </li>
+        <li>
+          <span><i class="fa-solid fa-circle-user"></i></span>
+          <button (click)="about()">about</button>
+        </li>
+      </ul>
+    </main>
+  </div>
+  <footer>
+    <div class="footer-content">
+      <span><i class="fa-solid fa-arrow-right-from-bracket"></i></span>
+      <button (click)="logout()">logout</button>
+    </div>
+  </footer>
+</div>

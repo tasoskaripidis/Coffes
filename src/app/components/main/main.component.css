@@ -1,0 +1,254 @@
+.mainPage {
+  background-color: lightgray;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header {
+  padding: 2rem;
+  width: 100%;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+
+header button {
+  font-size: 1.5rem;
+  color: rgb(83, 83, 83);
+  text-align: left;
+}
+
+header div {
+  margin: 1rem;
+}
+
+.entryText {
+  color: rgb(83, 83, 83);
+}
+
+/* main  */
+
+main {
+  height: 400px;
+  width: 100%;
+  overflow-y: scroll;
+}
+
+main li {
+  background-color: rgb(243, 242, 242);
+  margin: 2rem;
+  height: 100px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+main .fa-solid {
+  color: rgb(83, 83, 83);
+  font-size: 1.4rem;
+}
+
+/* 
+footer */
+
+footer {
+  display: flex;
+}
+
+footer button {
+  text-transform: capitalize;
+  color: rgb(83, 83, 83);
+  font-size: 1rem;
+}
+
+footer span {
+  margin: 6px;
+  text-transform: capitalize;
+}
+
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 140px;
+}
+footer div {
+  display: flex;
+  cursor: pointer;
+}
+
+.homeBtn {
+  margin: 1rem;
+  font-size: 1rem;
+  border: 3px solid white;
+  padding: 0.6rem;
+  border-radius: 6px;
+}
+
+.cardBtn {
+  margin: 1rem;
+  font-size: 1rem;
+  border: 3px solid white;
+  padding: 0.6rem;
+  border-radius: 6px;
+}
+
+/* api */
+img {
+  height: 70px;
+  width: 90px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+h4 {
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+  color: rgb(83, 83, 83);
+}
+
+.coffeeList {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: auto;
+  column-gap: 10px;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 2rem;
+}
+
+.message {
+  position: absolute;
+  top: 8rem;
+  width: auto;
+  z-index: 2000;
+}
+
+.message p {
+  background-color: rgb(101, 30, 30);
+  color: white;
+  font-size: 1rem;
+  padding: 1rem;
+  width: auto;
+  text-align: center;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-radius: 8px;
+}
+
+.payBtn {
+  color: white;
+  font-size: 1rem;
+  padding: 0.5rem;
+  background-color: rgb(101, 30, 30);
+  width: 200px;
+  border-radius: 6px;
+  text-transform: capitalize;
+  letter-spacing: 1px;
+  margin-top: 1rem;
+}
+
+.navbar {
+  display: none;
+}
+
+@media screen and (min-width: 660px) {
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+      rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+    height: 100px;
+  }
+
+  .navbar {
+    display: block;
+    width: auto;
+  }
+
+  .navbar ul {
+    display: flex;
+    align-items: center;
+    width: auto;
+  }
+
+  .navbar li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100px;
+    font-size: 1.2rem;
+    color: rgb(83, 83, 83);
+    letter-spacing: 1px;
+    cursor: pointer;
+    text-transform: capitalize;
+  }
+
+  main ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  main li {
+    background-color: rgb(243, 242, 242);
+    margin: 2rem;
+    height: 100px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+  }
+
+  header button {
+    font-size: 1.5rem;
+    color: rgb(83, 83, 83);
+    text-align: left;
+    display: none;
+  }
+}
+@media screen and (min-width: 960px) {
+  main ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  main li {
+    background-color: rgb(243, 242, 242);
+    margin: 2rem;
+    height: 100px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+  }
+
+  .navbar li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 200px;
+    font-size: 1.5rem;
+    color: rgb(83, 83, 83);
+    letter-spacing: 1px;
+    cursor: pointer;
+  }
+}

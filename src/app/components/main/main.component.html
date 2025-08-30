@@ -1,0 +1,114 @@
+@if(showMain){
+<div class="mainPage">
+  <div [class.overlay]="getOverlay"></div>
+
+  @if(getOverlay){
+  <div class="message">
+    <p>successfully aded to cart</p>
+  </div>
+  }
+
+  <header>
+    <div>
+      <div>
+        <button (click)="openSidebarBtn()">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+      <div>
+        <h3 class="entryText">How do you like your coffee?</h3>
+      </div>
+    </div>
+
+    <!-- bigscreen -->
+    <div class="navbar">
+      <ul>
+        <li>
+          <a routerLink="/about">about</a>
+        </li>
+        <li>
+          <a routerLink="/">logout</a>
+        </li>
+      </ul>
+    </div>
+  </header>
+  <main>
+    <ul>
+      <li *ngFor="let coffee of coffeList">
+        <div class="coffeeList">
+          <img [src]="coffee.image" alt="coffeImg" />
+          <h4>
+            {{ coffee.title }}
+          </h4>
+        </div>
+        <button (click)="details(coffee)">
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </li>
+    </ul>
+  </main>
+  <footer>
+    <div [class.homeBtn]="showHomeBtn" (click)="homeBtn()" class="btn">
+      <span><i class="fa-solid fa-house"></i></span>
+      <button [style.display]="showCardBtn ? 'none' : 'block'">shop</button>
+    </div>
+    <div [class.cardBtn]="showCardBtn" (click)="cardBtn()" class="btn">
+      <span><i class="fa-solid fa-credit-card"></i></span>
+      <button [style.display]="showHomeBtn ? 'none' : 'block'">cart</button>
+    </div>
+  </footer>
+  <app-sidebar
+    [openSidebar]="openBar"
+    (closeSidebar)="openBar = false"
+  ></app-sidebar>
+</div>
+
+<!-- cart -->
+
+} @if(showCart){
+<div class="mainPage">
+  <div></div>
+
+  <header>
+    <div>
+      <button (click)="openSidebarBtn()">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+    <div>
+      <p class="entryText">Your cart</p>
+    </div>
+  </header>
+  <main>
+    <ul>
+      <li *ngFor="let fav of favCoffee">
+        <div class="coffeeList">
+          <img [src]="fav.image" alt="coffeImg" />
+          <h4>
+            {{ fav.title }}
+          </h4>
+        </div>
+      </li>
+    </ul>
+  </main>
+  @if(favCoffee.length>0){
+  <button class="payBtn">pay now</button>
+  }
+
+  <footer>
+    <div [class.homeBtn]="showHomeBtn" (click)="homeBtn()" class="btn">
+      <span><i class="fa-solid fa-house"></i></span>
+      <button [style.display]="showCardBtn ? 'none' : 'block'">shop</button>
+    </div>
+    <div [class.cardBtn]="showCardBtn" (click)="cardBtn()" class="btn">
+      <span><i class="fa-solid fa-credit-card"></i></span>
+      <button [style.display]="showHomeBtn ? 'none' : 'block'">cart</button>
+    </div>
+  </footer>
+
+  <app-sidebar
+    [openSidebar]="openBar"
+    (closeSidebar)="openBar = false"
+  ></app-sidebar>
+</div>
+}

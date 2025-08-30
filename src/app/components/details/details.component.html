@@ -1,0 +1,6 @@
+<div class="details" *ngIf="coffee">
+  <h2>{{ coffee.title }}</h2>
+  <img [src]="coffee.image" alt="coffeeImg" />
+  <p>{{ coffee.description }}</p>
+  <button (click)="backToMain(overlay)">add to cart</button>
+</div>

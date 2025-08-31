@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { coffee, ServiceService } from '../../service/service.service';
 import { NgFor } from '@angular/common';
 import { SidebarComponent } from '../sidebar/sidebar.component';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-main',
@@ -10,7 +11,7 @@ import { SidebarComponent } from '../sidebar/sidebar.component';
   templateUrl: './main.component.html',
   styleUrl: './main.component.css',
 })
-export class MainComponent implements OnInit {
+export class MainComponent implements OnInit, OnDestroy {
   showHomeBtn: boolean = true;
   showCardBtn: boolean = false;
   coffeList: coffee[] = [];
@@ -20,6 +21,9 @@ export class MainComponent implements OnInit {
   showMain: boolean = true;
   showCart: boolean = false;
   favCoffee: coffee[] = [];
+
+  private overlay!: Subscription;
+  private favSub!: Subscription;
   constructor(private route: Router, private service: ServiceService) {}
 
   ngOnInit(): void {
@@ -27,7 +31,7 @@ export class MainComponent implements OnInit {
       this.coffeList = value;
     });
 
-    this.service.openOverlay$.subscribe((value) => {
+    this.overlay = this.service.openOverlay$.subscribe((value) => {
       if (value) {
         this.getOverlay = true;
         setTimeout(() => {
@@ -36,7 +40,7 @@ export class MainComponent implements OnInit {
       }
     });
 
-    this.service.addCoffe$.subscribe((value) => {
+    this.favSub = this.service.addCoffe$.subscribe((value) => {
       this.favCoffee = value;
     });
   }
@@ -62,5 +66,10 @@ export class MainComponent implements OnInit {
   details(value: coffee) {
     this.service.setCoffe(value);
     this.route.navigateByUrl('details');
+  }
+
+  ngOnDestroy(): void {
+    this.overlay?.unsubscribe();
+    this.favSub?.unsubscribe();
   }
 }

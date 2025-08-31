@@ -21,7 +21,7 @@ export class DetailsComponent implements OnInit {
     });
   }
 
-  backToMain(value: boolean) {
+  addToCard(value: boolean) {
     if (this.coffee) {
       this.service.sendOverlay(value);
       this.service.addFavorite(this.coffee);

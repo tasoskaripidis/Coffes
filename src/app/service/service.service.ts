@@ -34,6 +34,11 @@ export class ServiceService {
 
   sendOverlay(value: boolean) {
     this.mainOverlay.next(value);
+    if (value) {
+      setTimeout(() => {
+        this.mainOverlay.next(false);
+      }, 2000);
+    }
   }
 
   addFavorite(value: coffee) {
